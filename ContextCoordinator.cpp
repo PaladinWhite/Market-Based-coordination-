@@ -183,10 +183,12 @@ Vector2f ContextCoordinator::rel2Glob(float x, float y) const
 
 void ContextCoordinator::computePlayingRoleAssignment()     // assegno il ruolo durante il playing
 {
+    
     for(unsigned int r=0; r<utility_matrix.size(); ++r){
         mapped_robots.at(r) = false;
     }
 
+    /*
     if( theRobotInfo.number==2 )
         tmp_role = Role::striker;
     else if( theRobotInfo.number==3 ) 
@@ -195,6 +197,20 @@ void ContextCoordinator::computePlayingRoleAssignment()     // assegno il ruolo 
         tmp_role = Role::jolly;
     else if( theRobotInfo.number==5 )
         tmp_role = Role::supporter;
+    else
+        tmp_role = Role::undefined;
+    */
+
+    // per verificare la coordinazione rendo i ruoli uguali per tutti
+
+    if( theRobotInfo.number==2 )
+        tmp_role = Role::striker;
+    else if( theRobotInfo.number==3 ) 
+        tmp_role = Role::striker;
+    else if( theRobotInfo.number==4 )
+        tmp_role = Role::striker;
+    else if( theRobotInfo.number==5 )
+        tmp_role = Role::striker;
     else
         tmp_role = Role::undefined;
 
